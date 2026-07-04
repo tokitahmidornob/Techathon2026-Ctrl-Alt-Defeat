@@ -42,7 +42,7 @@ Our solution, developed by Team Holmes, is composed of three decoupled component
 ### Running the Servers Locally
 1.  **Start the Backend API:**
     ```bash
-    uvicorn backend.main:app --reload
+    python -m uvicorn backend.main:app --reload
     ```
     The API will be available at `http://localhost:8000`.
 
