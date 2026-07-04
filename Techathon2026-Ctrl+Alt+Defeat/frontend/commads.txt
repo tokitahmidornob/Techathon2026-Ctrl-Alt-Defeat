@@ -1,0 +1,3 @@
+python -m uvicorn backend.main:app --reload
+python bot/bot.py
+

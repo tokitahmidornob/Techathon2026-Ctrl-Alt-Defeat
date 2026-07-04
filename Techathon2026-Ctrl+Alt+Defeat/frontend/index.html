@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enterprise Office Monitor</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="connection-banner" class="connection-banner hidden">
+        <div class="spinner"></div>
+        <span>Connecting to Backend Server...</span>
+    </div>
+
+    <div class="dashboard-container">
+        <header class="header">
+            <div class="header-brand">
+                <h1>Smart Office Monitor</h1>
+                <p class="subtitle">Live System Telemetry</p>
+            </div>
+            <div class="power-meter">
+                <div class="meter-stat main-stat">
+                    <span class="label">Total Office Power Load</span>
+                    <span class="value" id="total-power">0 W</span>
+                </div>
+                <div class="meter-stat sub-stat">
+                    <span class="label">Max Capacity</span>
+                    <span class="value">495 W</span>
+                </div>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <div class="left-panel">
+                <section class="office-layout">
+                <div class="layout-grid">
+                    <!-- Drawing Room -->
+                    <div class="room-container drawing-room" id="room-Drawing-Room">
+                        <div class="room-header">
+                            <h2>Drawing Room</h2>
+                            <div class="room-stats">
+                                <span class="room-power" id="power-Drawing-Room">0 W</span>
+                            </div>
+                        </div>
+                        <div class="device-grid" id="devices-Drawing-Room">
+                            <!-- Devices injected by JS -->
+                        </div>
+                    </div>
+                    
+                    <!-- Work Room 1 -->
+                    <div class="room-container work-room-1" id="room-Work-Room-1">
+                        <div class="room-header">
+                            <h2>Work Room 1</h2>
+                            <div class="room-stats">
+                                <span class="room-power" id="power-Work-Room-1">0 W</span>
+                            </div>
+                        </div>
+                        <div class="device-grid" id="devices-Work-Room-1">
+                            <!-- Devices injected by JS -->
+                        </div>
+                    </div>
+                    
+                    <!-- Work Room 2 -->
+                    <div class="room-container work-room-2" id="room-Work-Room-2">
+                        <div class="room-header">
+                            <h2>Work Room 2</h2>
+                            <div class="room-stats">
+                                <span class="room-power" id="power-Work-Room-2">0 W</span>
+                            </div>
+                        </div>
+                        <div class="device-grid" id="devices-Work-Room-2">
+                            <!-- Devices injected by JS -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="manual-override-panel">
+                <div class="panel-header">
+                    <h2>Manual Override</h2>
+                </div>
+                <div class="panel-controls">
+                    <select id="override-room" class="override-select">
+                        <option value="">Select Room</option>
+                        <option value="Drawing Room">Drawing Room</option>
+                        <option value="Work Room 1">Work Room 1</option>
+                        <option value="Work Room 2">Work Room 2</option>
+                    </select>
+                    <select id="override-device" class="override-select" disabled>
+                        <option value="">Select Device</option>
+                    </select>
+                    <button id="override-btn" class="override-btn" disabled>Toggle Device</button>
+                </div>
+            </section>
+            </div>
+
+            <div class="right-panel">
+                <aside class="financial-panel">
+                    <div class="alerts-header">
+                        <h2>Live Cost Estimate</h2>
+                        <span class="live-indicator">
+                            <span class="pulse-dot"></span> LIVE
+                        </span>
+                    </div>
+                    <div class="financial-content">
+                        <div class="cost-stat">
+                            <span class="label">Projected Daily Cost</span>
+                            <span class="value" id="projected-cost">0 BDT</span>
+                        </div>
+                    </div>
+                </aside>
+
+                <aside class="alerts-panel eco-logs-panel">
+                    <div class="alerts-header">
+                        <h2>System Activity Log</h2>
+                        <span class="live-indicator">
+                            <span class="pulse-dot"></span> LIVE
+                        </span>
+                    </div>
+                    <div id="eco-logs-container" class="anomalies-feed">
+                        <div class="all-clear">
+                            <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                            </svg>
+                            <p>No interventions yet.</p>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
